@@ -1,0 +1,5 @@
+pydantic-core (2.46.0-1) UNRELEASED; urgency=medium
+
+  * Initial Debian packaging.
+
+ -- Colin Watson <cjwatson@debian.org>  Sat, 02 May 2026 12:30:00 +0000
