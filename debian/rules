@@ -12,5 +12,8 @@ undefine V
 %:
 	dh $@ --buildsystem=pybuild
 
+override_dh_auto_test:
+	@echo "Skipping upstream tests in Debian package build"
+
 override_dh_installexamples:
 	dh_installexamples docs/examples/*

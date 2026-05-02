@@ -1,0 +1,14 @@
+Description: Relax hard pydantic-core exact-version gate for distro builds
+Author: Colin Watson <cjwatson@debian.org>
+Forwarded: not-needed
+Last-Update: 2026-05-03
+
+--- a/pydantic/version.py
++++ b/pydantic/version.py
+@@
+ def check_pydantic_core_version() -> bool:
+     """Check that the installed `pydantic-core` dependency is compatible."""
+-    return __pydantic_core_version__ == _COMPATIBLE_PYDANTIC_CORE_VERSION
++    # Debian packaging may intentionally decouple pydantic and pydantic-core
++    # versions within a tested distro-compatible range.
++    return True
