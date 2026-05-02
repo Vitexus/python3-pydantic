@@ -15,6 +15,8 @@ pydantic (2.14.0~a0+dev-1) UNRELEASED; urgency=medium
     binary dependencies are satisfiable with python3-pydantic-core 2.27.x.
   * Widen distro compatibility range to python3-pydantic-core < 2.42,
     allowing forky's 2.41.5 package.
+  * Force-normalize generated python3:Depends on python3-pydantic-core to
+    >= 2.27.2, << 2.42 during dh_python3.
 
  -- Colin Watson <cjwatson@debian.org>  Sat, 02 May 2026 12:00:00 +0000
 

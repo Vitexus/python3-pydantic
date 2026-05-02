@@ -15,5 +15,9 @@ undefine V
 override_dh_auto_test:
 	@echo "Skipping upstream tests in Debian package build"
 
+override_dh_python3:
+	dh_python3
+	perl -0pi -e 's/python3-pydantic-core \(>= [^)]+\), python3-pydantic-core \(<< [^)]+\)/python3-pydantic-core (>= 2.27.2), python3-pydantic-core (<< 2.42)/g' debian/python3-pydantic.substvars
+
 override_dh_installexamples:
 	dh_installexamples docs/examples/*
