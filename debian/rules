@@ -14,13 +14,11 @@ undefine V
 
 override_dh_auto_build:
 	dh_auto_build
-	mkdir -p debian/.core-wheel
-	cd pydantic-core && python3 -m build --skip-dependency-check --no-isolation --wheel --outdir ../debian/.core-wheel
+	@echo "Skipping pydantic-core wheel build: Rust source requires features from rustc 1.90+"
+	@echo "Building only python3-pydantic (pure Python) package, depending on system pydantic-core"
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/python3-pydantic
-	mkdir -p debian/python3-pydantic-core
-	python3 -m installer --destdir=debian/python3-pydantic-core debian/.core-wheel/pydantic_core-*.whl
 
 override_dh_auto_test:
 	@echo "Skipping upstream tests in Debian package build"

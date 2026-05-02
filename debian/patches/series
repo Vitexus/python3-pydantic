@@ -2,3 +2,4 @@ pytest_examples_not_yet_packaged.patch
 pep-649-remove-xfail.patch
 relax-pydantic-core-version-check.patch
 relax-pydantic-core-requires-dist.patch
+relax-rust-toolchain.patch

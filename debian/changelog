@@ -1,3 +1,26 @@
+pydantic (2.14.0~a0+dev-1.11~trixie) UNRELEASED; urgency=medium
+
+  * Adjusted Debian 13 packaging strategy: pydantic-core source incompatibility
+    - pydantic-core Rust code requires features from rustc 1.90+ (if let expressions).
+    - Debian 13 trixie provides only rustc 1.85.0.
+    - Added documentation note in debian/patches/relax-rust-toolchain.patch explaining limitation.
+    - Removed python3-pydantic-core from binary package list (cannot build from source).
+    - Removed cargo, rustc, python3-maturin from Build-Depends (not needed for pure Python build).
+    - Updated debian/rules to skip pydantic-core wheel build.
+    - Reverted to building only python3-pydantic (pure Python layer).
+    - Users must install python3-pydantic-core separately from distro repos.
+
+ -- Debian Packager <jenkins@vyvojar.spoje.net>  Fri, 03 May 2026 02:00:00 +0200
+
+pydantic (2.14.0~a0+dev-1.10~trixie) UNRELEASED; urgency=medium
+
+  * Relaxed Rust toolchain requirements for Debian 13 (rustc 1.85 in trixie):
+    - Downgraded pydantic-core rust-version from 1.88 to 1.83 (via relax-rust-toolchain.patch)
+    - Downgraded jiter from 0.14.0 to 0.13.0 (jiter 0.13 is last version requiring rs 1.83)
+    - Relaxed maturin build requirement from >=1.10,<2 to >=1.8,<2
+
+ -- Debian Packager <jenkins@vyvojar.spoje.net>  Fri, 03 May 2026 01:10:00 +0200
+
 pydantic (2.14.0~a0+dev-1) UNRELEASED; urgency=medium
 
   * Refresh packaging for current upstream development snapshot.

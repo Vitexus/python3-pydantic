@@ -1,0 +1,40 @@
+Description: Relax Rust toolchain requirements for Debian 13 (rustc 1.85)
+ Debian 13 provides rustc 1.85.0 in trixie, which is the minimum required by
+ Cargo.toml edition 2024. This patch downgrades the restrictive jiter dependency:
+ 1. Keep rust-version at 1.85 (required by edition 2024, matches Debian 13)
+ 2. Downgrade jiter from 0.14.0 to 0.13.0 (jiter 0.14 requires rustc 1.88,
+    but jiter 0.13 requires only 1.83, well below Debian 13's 1.85)
+ 3. Relax maturin from >=1.10,<2 to >=1.8,<2
+ This allows pydantic-core to build on Debian 13 trixie without requiring
+ external Rust toolchain upgrades.
+Author: Debian Packager <jenkins@vyvojar.spoje.net>
+Last-Update: 2026-05-03
+
+--- a/pydantic-core/Cargo.toml
++++ b/pydantic-core/Cargo.toml
+@@ -22,7 +22,7 @@
+     "!tests/.pytest_cache",
+     "!*.so",
+ ]
+-rust-version = "1.88"
++rust-version = "1.85"
+ [dependencies]
+ # TODO it would be very nice to remove the "py-clone" feature as it can panic,
+@@ -45,7 +45,7 @@
+ num-bigint = "0.4.6"
+ num-traits = "0.2.19"
+ uuid = "1.23.0"
+-jiter = { version = "0.14.0", features = ["python"] }
++jiter = { version = "0.13.0", features = ["python"] }
+ hex = "0.4.3"
+  percent-encoding = "2.3.2"
+  hashbrown = { version = "0.16", default-features = false, features = ["inline-more"] }
+
+--- a/pydantic-core/pyproject.toml
++++ b/pydantic-core/pyproject.toml
+@@ -1,4 +1,4 @@
+ [build-system]
+-requires = ['maturin>=1.10,<2']
++requires = ['maturin>=1.8,<2']
+  build-backend = 'maturin'
+

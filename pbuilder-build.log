@@ -1,0 +1,188 @@
+W: /home/vitex/.pbuilderrc does not exist
+ -> Attempting to satisfy build-dependencies
+ -> Creating pbuilder-satisfydepends-dummy package
+Package: pbuilder-satisfydepends-dummy
+Version: 0.invalid.0
+Architecture: amd64
+Maintainer: Debian Pbuilder Team <pbuilder-maint@lists.alioth.debian.org>
+Description: Dummy package to satisfy dependencies with aptitude - created by pbuilder
+ This package was created automatically by pbuilder to satisfy the
+ build-dependencies of the package being currently built.
+Depends: debhelper-compat (= 13), dh-python (>= 6.20241024~), dh-sequence-python3, cython3, pybuild-plugin-pyproject, python3-build, python3-installer, python3-all-dev, python3-annotated-types, python3-cloudpickle, python3-dirty-equals, python3-dotenv, python3-email-validator (>= 2.0), python3-fake-factory, python3-hatch-fancy-pypi-readme, python3-jsonschema, python3-packaging (>= 23.2), python3-pytest (>= 8.2.2), python3-pytest-benchmark, python3-pytest-mock, python3-pytest-run-parallel | python3-pytest-xdist, python3-pytz, python3-rich, python3-setuptools, python3-typing-extensions (>= 4.13.2), python3-typing-inspection (>= 0.4.2)
+dpkg-deb: building package 'pbuilder-satisfydepends-dummy' in '/tmp/satisfydepends-aptitude/pbuilder-satisfydepends-dummy.deb'.
+(Reading database ... 613624 files and directories currently installed.)
+Preparing to unpack .../pbuilder-satisfydepends-dummy.deb ...
+Unpacking pbuilder-satisfydepends-dummy (0.invalid.0) over (0.invalid.0) ...
+Setting up pbuilder-satisfydepends-dummy (0.invalid.0) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Reading extended state information...
+Initializing package states...
+Writing extended state information...
+Building tag database...
+pbuilder-satisfydepends-dummy is already installed at the requested version (0.invalid.0)
+pbuilder-satisfydepends-dummy is already installed at the requested version (0.invalid.0)
+The following packages will be REMOVED:
+  python3-maturin{u} 
+0 packages upgraded, 0 newly installed, 1 to remove and 2 not upgraded.
+Need to get 0 B of archives. After unpacking 13.7 MB will be freed.
+Writing extended state information...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 613624 files and directories currently installed.)
+Removing python3-maturin (1.8.3-1) ...
+
+needrestart 3.11 - Restart daemons after library updates.
+
+Authors:
+  Thomas Liske <thomas@fiasko-nw.net>
+
+Copyright Holder:
+  2013 - 2022 (C) Thomas Liske [http://fiasko-nw.net/~thomas/]
+
+Upstream:
+  https://github.com/liske/needrestart
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+Usage:
+
+  needrestart [-vn] [-c <cfg>] [-r <mode>] [-f <fe>] [-u <ui>] [-(b|p|o)] [-x] [-klw]
+
+    -v		be more verbose
+    -q		be quiet
+    -m <mode>	set detail level
+	e	(e)asy mode
+	a	(a)dvanced mode
+    -n		set default answer to 'no'
+    -c <cfg>	config filename
+    -r <mode>	set restart mode
+	l	(l)ist only
+	i	(i)nteractive restart
+	a	(a)utomatically restart
+    -b		enable batch mode
+    -p          enable nagios plugin mode
+    -o          enable OpenMetrics output mode, implies batch mode, cannot be used simultaneously with -p
+    -f <fe>	override debconf frontend (DEBIAN_FRONTEND, debconf(7))
+    -t <seconds> tolerate interpreter process start times within this value
+    -u <ui>     use preferred UI package (-u ? shows available packages)
+    -x		do not ask for restarts if no process is selected by default
+
+  By using the following options only the specified checks are performed:
+    -k          check for obsolete kernel
+    -l          check for obsolete libraries
+    -w          check for obsolete CPU microcode
+
+    --help      show this help
+    --version   show version information
+
+  [Now continuing due to backward compatibility and excessive paranoia.
+   See 'perldoc Getopt::Std' about $Getopt::Std::STANDARD_HELP_VERSION.]
+
+Running kernel seems to be up-to-date.
+
+The processor microcode seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+User sessions running outdated binaries:
+ vitex @ user service: app-\x2fusr\x2flib\x2ffirefox\x2dnightly\x2ffirefox@0d34c3a99f584ac7ad977dfd736b1d7f.service[3058,3122,3558]
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Reading extended state information...
+Initializing package states...
+Writing extended state information...
+Building tag database...
+ -> Finished parsing the build-deps
+ dpkg-buildpackage -rsudo -us -uc -ui -i -b
+dpkg-buildpackage: info: source package pydantic
+dpkg-buildpackage: info: source version 2.14.0~a0+dev-1.11~trixie
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by Debian Packager <jenkins@vyvojar.spoje.net>
+ dpkg-source -i --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh clean --buildsystem=pybuild
+   dh_auto_clean -O--buildsystem=pybuild
+   dh_autoreconf_clean -O--buildsystem=pybuild
+   dh_clean -O--buildsystem=pybuild
+ debian/rules binary
+dh binary --buildsystem=pybuild
+   dh_update_autotools_config -O--buildsystem=pybuild
+   dh_autoreconf -O--buildsystem=pybuild
+   dh_auto_configure -O--buildsystem=pybuild
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+dh_auto_build
+I: pybuild plugin_pyproject:129: Building wheel for python3.13 with "build" module
+I: pybuild base:311: python3.13 -m build --skip-dependency-check --no-isolation --wheel --outdir /home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic/.pybuild/cpython3_3.13  
+* Building wheel...
+Successfully built pydantic-2.14.0a0+dev-py3-none-any.whl
+I: pybuild plugin_pyproject:144: Unpacking wheel built for python3.13 with "installer" module
+Skipping pydantic-core wheel build: Rust source requires features from rustc 1.90+
+Building only python3-pydantic (pure Python) package, depending on system pydantic-core
+make[1]: Leaving directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+Skipping upstream tests in Debian package build
+make[1]: Leaving directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot -O--buildsystem=pybuild
+   dh_prep -O--buildsystem=pybuild
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+dh_auto_install --destdir=debian/python3-pydantic
+I: pybuild plugin_pyproject:178: Copying package built for python3.13 to destdir
+make[1]: Leaving directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+   dh_installdocs -O--buildsystem=pybuild
+   dh_installchangelogs -O--buildsystem=pybuild
+   debian/rules override_dh_installexamples
+make[1]: Entering directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+dh_installexamples docs/examples/*
+make[1]: Leaving directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+   debian/rules override_dh_python3
+make[1]: Entering directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+dh_python3
+I: dh_python3 pydist:339: Ignoring complex environment marker: tzdata; (platform_system == 'Windows') and extra == 'timezone'
+perl -0pi -e 's/python3-pydantic-core \(>= [^)]+\), python3-pydantic-core \(<< [^)]+\)/python3-pydantic-core/g' debian/python3-pydantic.substvars
+make[1]: Leaving directory '/home/vitex/Projects/Packaging/python3-pydantic/python3-pydantic'
+   dh_installsystemduser -O--buildsystem=pybuild
+   dh_perl -O--buildsystem=pybuild
+   dh_link -O--buildsystem=pybuild
+   dh_strip_nondeterminism -O--buildsystem=pybuild
+   dh_compress -O--buildsystem=pybuild
+   dh_fixperms -O--buildsystem=pybuild
+   dh_missing -O--buildsystem=pybuild
+   dh_dwz -a -O--buildsystem=pybuild
+   dh_strip -a -O--buildsystem=pybuild
+   dh_makeshlibs -a -O--buildsystem=pybuild
+   dh_shlibdeps -a -O--buildsystem=pybuild
+   dh_installdeb -O--buildsystem=pybuild
+   dh_gencontrol -O--buildsystem=pybuild
+   dh_md5sums -O--buildsystem=pybuild
+   dh_builddeb -O--buildsystem=pybuild
+dpkg-deb: building package 'python3-pydantic' in '../python3-pydantic_2.14.0~a0+dev-1.11~trixie_amd64.deb'.
+ dpkg-genbuildinfo --build=binary -O../pydantic_2.14.0~a0+dev-1.11~trixie_amd64.buildinfo
+ dpkg-genchanges --build=binary -O../pydantic_2.14.0~a0+dev-1.11~trixie_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source -i --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian pydantic_2.14.0~a0+dev-1.11~trixie_amd64.changes ...
+W: python3-pydantic: debian-changelog-has-wrong-day-of-week 2026-05-03 was a Sunday [usr/share/doc/python3-pydantic/changelog.Debian.gz:1]
+W: python3-pydantic: debian-changelog-line-too-long [usr/share/doc/python3-pydantic/changelog.Debian.gz:4]
+W: python3-pydantic: debian-changelog-line-too-long [usr/share/doc/python3-pydantic/changelog.Debian.gz:6]
+W: python3-pydantic: debian-changelog-line-too-long [usr/share/doc/python3-pydantic/changelog.Debian.gz:7]
+W: python3-pydantic: debian-changelog-line-too-long [usr/share/doc/python3-pydantic/changelog.Debian.gz:8]
+Finished running lintian.
+
+WARNING generated by debuild:
+-E is deprecated in debuild, as dpkg-buildpackage now uses it.
+Please use --preserve-env instead in future.
+
