@@ -17,6 +17,9 @@ pydantic (2.14.0~a0+dev-1) UNRELEASED; urgency=medium
     allowing forky's 2.41.5 package.
   * Force-normalize generated python3:Depends on python3-pydantic-core to
     >= 2.27.2, << 2.42 during dh_python3.
+  * Build python3-pydantic-core from pydantic-core/ as part of the same source
+    package using the top-level debian/ metadata.
+  * Remove requirement for separate pydantic-core/debian packaging flow.
 
  -- Colin Watson <cjwatson@debian.org>  Sat, 02 May 2026 12:00:00 +0000
 
