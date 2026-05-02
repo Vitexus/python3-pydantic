@@ -11,6 +11,8 @@ pydantic (2.14.0~a0+dev-1) UNRELEASED; urgency=medium
     - python3-pytest-run-parallel | python3-pytest-xdist
   * Skip upstream test execution during package build.
   * Relax strict runtime pydantic-core exact-version check for distro builds.
+  * Relax upstream Requires-Dist on pydantic-core for trixie so generated
+    binary dependencies are satisfiable with python3-pydantic-core 2.27.x.
 
  -- Colin Watson <cjwatson@debian.org>  Sat, 02 May 2026 12:00:00 +0000
 
