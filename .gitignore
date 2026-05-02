@@ -56,3 +56,11 @@ pydantic/*.so
 
 # Rust build files
 /target/
+.pybuild/
+debian/.debhelper/
+debian/python3-pydantic/
+debian/debhelper-build-stamp
+debian/python3-pydantic.debhelper.log
+debian/python3-pydantic.prerm.debhelper
+debian/python3-pydantic.substvars
+debian/python3-pydantic.postinst.debhelper
