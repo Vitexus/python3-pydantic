@@ -6,7 +6,7 @@ pydantic (2.14.0~a0+dev-1) UNRELEASED; urgency=medium
   * Add missing py3dist override for typing-inspection.
   * Drop unnecessary ${shlibs:Depends} in python3-pydantic.
   * Relax Build-Depends for trixie:
-    - python3-pydantic-core to >= 2.27.2, << 2.28
+    - python3-pydantic-core to >= 2.27.2, << 2.42
     - python3-typing-extensions to >= 4.13.2
     - python3-pytest-run-parallel | python3-pytest-xdist
   * Skip upstream test execution during package build.
